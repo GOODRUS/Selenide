@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 class OpenCardTest {
     @Test
-    void shouldRegisterByAccountNumberDOMModification() {
+    void shouldTestCardForm() {
 
         LocalDate date = LocalDate.now();
         date = date.plusDays(3);
@@ -22,7 +22,7 @@ class OpenCardTest {
         int day = date.getDayOfMonth();
         String dateFinal = day + "." + "0" + month + "." + year;
 
-        Configuration.holdBrowserOpen = true;
+        Configuration.headless = true;
         open("http://localhost:9999");
         $("span[data-test-id='city'] input").setValue("Екатеринбург");
         $("span[data-test-id='date'] input").sendKeys(Keys.CONTROL + "a" + Keys.BACK_SPACE);
